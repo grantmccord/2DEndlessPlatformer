@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 5f;
+    public float speed = 10f;
     public float jumpForce = 10f;
     public float distanceToGround = 1.5f;
     public LayerMask whatIsGround;
