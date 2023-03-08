@@ -8,11 +8,14 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 10f;
     public float distanceToGround = 1.5f;
     public LayerMask whatIsGround;
+    private float horizontalInput = 0f;
 
     private Rigidbody2D rb2d;
+    private Animator anim;
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     // so that physics works (doesnt depend on framerate)
@@ -29,11 +32,12 @@ public class PlayerController : MonoBehaviour
 
 
 
-        float horizontalInput = Input.GetAxis("Horizontal");
+        horizontalInput = Input.GetAxis("Horizontal");
         // dont change y velocity 
         rb2d.velocity = new Vector2(horizontalInput * speed, rb2d.velocity.y);
 
-        
+        UpdateAnimationState();
+
         Transform feetPos = transform;
         bool isGrounded = Physics2D.Raycast(feetPos.position, Vector2.down, distanceToGround, whatIsGround);
 
@@ -45,5 +49,22 @@ public class PlayerController : MonoBehaviour
 
     public void Update() {
 
+    }
+
+    // Updates running animation
+    private void UpdateAnimationState()
+    {
+        if (horizontalInput > 0f)
+        {
+            anim.SetBool("isRunning", true);
+        }
+        else if (horizontalInput < 0f)
+        {
+            anim.SetBool("isRunning", true);
+        }
+        else
+        {
+            anim.SetBool("isRunning", false);
+        }
     }
 }
