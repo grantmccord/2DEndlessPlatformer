@@ -12,10 +12,12 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb2d;
     private Animator anim;
+    private SpriteRenderer sprite;
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     // so that physics works (doesnt depend on framerate)
@@ -57,10 +59,12 @@ public class PlayerController : MonoBehaviour
         if (horizontalInput > 0f)
         {
             anim.SetBool("isRunning", true);
+            sprite.flipX = false;
         }
         else if (horizontalInput < 0f)
         {
             anim.SetBool("isRunning", true);
+            sprite.flipX = true;
         }
         else
         {
