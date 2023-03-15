@@ -9920,7 +9920,8 @@ MonoBehaviour:
   - {fileID: 1745538722}
   - {fileID: 977052596}
   - {fileID: 107782846}
-  itemSOs: []
+  itemSOs:
+  - {fileID: 11400000, guid: 3787b9fa375638c48a00df38526c0087, type: 2}
 --- !u!114 &1450619311
 MonoBehaviour:
   m_ObjectHideFlags: 0

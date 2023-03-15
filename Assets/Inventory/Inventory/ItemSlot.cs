@@ -16,7 +16,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     public Sprite emptySprite;
     public ItemType itemType;
 
-    public int maxNumberOfItems;
+    public int maxNumberOfItems = 99;
 
     //=======ITEM SLOT=======//
     [SerializeField] private TMP_Text quantityText;
@@ -59,7 +59,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         this.quantity += quantity;
         if (this.quantity >= maxNumberOfItems)
         {
-            quantityText.text = quantity.ToString();
+            quantityText.text = maxNumberOfItems.ToString();
             quantityText.enabled = true;
             isFull = true;
 

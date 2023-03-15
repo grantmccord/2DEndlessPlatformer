@@ -80,13 +80,13 @@ public class InventoryManager : MonoBehaviour
         {
             for (int i = 0; i < itemSlot.Length; i++)
             {
-                if (itemSlot[i].isFull == false && itemSlot[i].name == name || itemSlot[i].quantity == 0)
+                if (itemSlot[i].isFull == false && itemSlot[i].itemName == name || itemSlot[i].quantity == 0)
                 {
                     int leftOverItems = itemSlot[i].AddItem(itemName, quantity, itemSprite, itemDescription, itemType);
-                    if (leftOverItems > 0)
-                    {
-                        leftOverItems = AddItem(itemName, leftOverItems, itemSprite, itemDescription, itemType);
-                    }
+                    //if (leftOverItems > 0)
+                    //{
+                    //    leftOverItems = AddItem(itemName, leftOverItems, itemSprite, itemDescription, itemType);
+                    //}
                     return leftOverItems;
                 }
             }
@@ -96,13 +96,13 @@ public class InventoryManager : MonoBehaviour
         {
             for (int i = 0; i < equipmentSlot.Length; i++)
             {
-                if (equipmentSlot[i].isFull == false && equipmentSlot[i].name == name || equipmentSlot[i].quantity == 0)
+                if (equipmentSlot[i].isFull == false && equipmentSlot[i].itemName == name || equipmentSlot[i].quantity == 0)
                 {
                     int leftOverItems = equipmentSlot[i].AddItem(itemName, quantity, itemSprite, itemDescription, itemType);
-                    if (leftOverItems > 0)
-                    {
-                        leftOverItems = AddItem(itemName, leftOverItems, itemSprite, itemDescription, itemType);
-                    }
+                    //if (leftOverItems > 0)
+                    //{
+                    //    leftOverItems = AddItem(itemName, leftOverItems, itemSprite, itemDescription, itemType);
+                    //}
                     return leftOverItems;
                 }
             }

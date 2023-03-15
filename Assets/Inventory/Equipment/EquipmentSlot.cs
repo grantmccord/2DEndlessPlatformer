@@ -40,6 +40,8 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
         this.itemName = itemName;
         this.quantity = 1;
         this.itemSprite = itemSprite;
+        itemImage.sprite = itemSprite;
+        itemImage.enabled = true;
         this.itemDescription = itemDescription;
         isFull = true;
         return 0;
