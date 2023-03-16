@@ -17,8 +17,11 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
     public ItemType itemType;
 
     //=======ITEM SLOT=======//
-    [SerializeField] private TMP_Text quantityText;
     [SerializeField] private Image itemImage;
+
+    //=======EQUIPPED SLOTS=======//
+    [SerializeField] private EquippedSlot headSlot, cloakSlot, bodySlot, legsSlot, mainHandSlot, offHandSlot, relicSlot, feetSlot; 
+
 
     public GameObject selectedShader;
     public bool thisItemSelected;
@@ -61,9 +64,56 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
 
     public void OnLeftClick()
     {
+        if (thisItemSelected)
+        {
+            EquipGear();
+        }
         inventoryManager.DeselectAllSlots();
         selectedShader.SetActive(true);
         thisItemSelected = true;
+    }
+
+    private void EquipGear()
+    {
+        if (itemType == ItemType.head)
+        {
+            headSlot.EquipGear(itemSprite, itemName, itemDescription);
+        } 
+        else if (itemType == ItemType.cloak)
+        {
+            cloakSlot.EquipGear(itemSprite, itemName, itemDescription);
+        }
+        else if (itemType == ItemType.body)
+        {
+            bodySlot.EquipGear(itemSprite, itemName, itemDescription);
+        }
+        else if (itemType == ItemType.legs)
+        {
+            legsSlot.EquipGear(itemSprite, itemName, itemDescription);
+        }
+        else if (itemType == ItemType.mainHand)
+        {
+            mainHandSlot.EquipGear(itemSprite, itemName, itemDescription);
+        }
+        else if (itemType == ItemType.offHand)
+        {
+            offHandSlot.EquipGear(itemSprite, itemName, itemDescription);
+        }
+        else if (itemType == ItemType.relic)
+        {
+            relicSlot.EquipGear(itemSprite, itemName, itemDescription);
+        }
+        else if (itemType == ItemType.feet)
+        {
+            feetSlot.EquipGear(itemSprite, itemName, itemDescription);
+        }
+
+        EmptySlot();
+    }
+
+    private void EmptySlot()
+    {
+        itemImage.enabled = false;
     }
 
     public void OnRightClick()
