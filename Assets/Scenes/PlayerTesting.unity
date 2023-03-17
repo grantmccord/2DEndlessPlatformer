@@ -1082,7 +1082,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotImage: {fileID: 347853395}
   slotName: {fileID: 1758887957}
+  playerDisplayImage: {fileID: 0}
   itemType: 8
+  selectedShader: {fileID: 1464529015}
+  thisItemSelected: 0
 --- !u!1 &244721742
 GameObject:
   m_ObjectHideFlags: 0
@@ -4125,7 +4128,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotImage: {fileID: 605637160}
   slotName: {fileID: 1770009821}
+  playerDisplayImage: {fileID: 0}
   itemType: 6
+  selectedShader: {fileID: 52749554}
+  thisItemSelected: 0
 --- !u!1001 &588042506
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5669,7 +5675,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotImage: {fileID: 2008467957}
   slotName: {fileID: 106314545}
+  playerDisplayImage: {fileID: 0}
   itemType: 3
+  selectedShader: {fileID: 1300227804}
+  thisItemSelected: 0
 --- !u!224 &792816875 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 9011125365483696648, guid: d77b0fbd2df0af34a80801860fde2591, type: 3}
@@ -6560,7 +6569,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotImage: {fileID: 667601783}
   slotName: {fileID: 495219433}
+  playerDisplayImage: {fileID: 0}
   itemType: 4
+  selectedShader: {fileID: 36113035}
+  thisItemSelected: 0
 --- !u!1 &968408130
 GameObject:
   m_ObjectHideFlags: 0
@@ -7442,7 +7454,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotImage: {fileID: 408724068}
   slotName: {fileID: 1388301120}
+  playerDisplayImage: {fileID: 0}
   itemType: 7
+  selectedShader: {fileID: 404037718}
+  thisItemSelected: 0
 --- !u!224 &1082982924 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 9011125365483696648, guid: d77b0fbd2df0af34a80801860fde2591, type: 3}
@@ -7682,7 +7697,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotImage: {fileID: 1407577736}
   slotName: {fileID: 648122327}
+  playerDisplayImage: {fileID: 0}
   itemType: 9
+  selectedShader: {fileID: 2070350499}
+  thisItemSelected: 0
 --- !u!1 &1146037152
 GameObject:
   m_ObjectHideFlags: 0
@@ -8253,7 +8271,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotImage: {fileID: 1339514053}
   slotName: {fileID: 1929612912}
+  playerDisplayImage: {fileID: 0}
   itemType: 10
+  selectedShader: {fileID: 2034908173}
+  thisItemSelected: 0
 --- !u!1 &1235584388
 GameObject:
   m_ObjectHideFlags: 0
@@ -10347,6 +10368,15 @@ MonoBehaviour:
   - {fileID: 975312025}
   - {fileID: 58447737}
   - {fileID: 588042507}
+  equippedSlot:
+  - {fileID: 785098231}
+  - {fileID: 947611025}
+  - {fileID: 2028487135}
+  - {fileID: 560679842}
+  - {fileID: 1050750255}
+  - {fileID: 238359799}
+  - {fileID: 1118007481}
+  - {fileID: 1228802150}
   itemSOs: []
 --- !u!114 &1450619311
 MonoBehaviour:
@@ -16188,7 +16218,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotImage: {fileID: 654552814}
   slotName: {fileID: 1235584390}
+  playerDisplayImage: {fileID: 0}
   itemType: 5
+  selectedShader: {fileID: 61136266}
+  thisItemSelected: 0
 --- !u!1 &2034908173
 GameObject:
   m_ObjectHideFlags: 0

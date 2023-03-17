@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
-public class EquippedSlot : MonoBehaviour
+public class EquippedSlot : MonoBehaviour, IPointerClickHandler
 {
     //SLOT APPEARANCE//
     [SerializeField] private Image slotImage;
 
     [SerializeField] private TMP_Text slotName;
+
+    [SerializeField] private Image playerDisplayImage;
 
     //SLOT DATA//
     [SerializeField] private ItemType itemType = new ItemType();
@@ -18,11 +21,61 @@ public class EquippedSlot : MonoBehaviour
     private string itemName;
     private string itemDescription;
 
+    private InventoryManager inventoryManager;
+
+    private void Start()
+    {
+        inventoryManager = GameObject.Find("InventoryCanvas").GetComponent<InventoryManager>();
+    }
+
     //OTHER VARIABLES//
     private bool slotInUse;
 
+    [SerializeField] public GameObject selectedShader;
+    [SerializeField] public bool thisItemSelected;
+
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        //On left click
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            OnLeftClick();
+        }
+        //On right click
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            OnRightClick();
+        }
+    }
+
+    void OnLeftClick()
+    {
+        if (thisItemSelected && slotInUse)
+        {
+            UnEquipGear();
+        }
+        else
+        {
+            inventoryManager.DeselectAllSlots();
+            selectedShader.SetActive(true);
+            thisItemSelected = true;
+        }
+    }
+
+    void OnRightClick()
+    {
+        UnEquipGear();
+    }
+
     public void EquipGear(Sprite itemSprite, string itemName, string itemDescription)
     {
+        //If something is already equipped, send it back before equipping the new item
+        if (slotInUse)
+        {
+            UnEquipGear();
+        }
+
         //Update image
         this.itemSprite = itemSprite;
         slotImage.sprite = this.itemSprite;
@@ -34,5 +87,19 @@ public class EquippedSlot : MonoBehaviour
         this.itemDescription = itemDescription;
 
         slotInUse = true;
+    }
+
+    public void UnEquipGear()
+    {
+        inventoryManager.DeselectAllSlots();
+
+        inventoryManager.AddItem(itemName, 1, itemSprite, itemDescription, itemType);
+
+        //Update Slot Image
+        selectedShader.SetActive(false);
+        thisItemSelected = false;
+        slotInUse = false;
+        slotImage.enabled = false;
+        slotName.enabled = true;
     }
 }

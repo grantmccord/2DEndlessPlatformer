@@ -114,6 +114,8 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
     private void EmptySlot()
     {
         itemImage.enabled = false;
+        quantity = 0;
+        isFull = false;
     }
 
     public void OnRightClick()
