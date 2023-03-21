@@ -12,10 +12,14 @@ public class EquipmentSO : ScriptableObject
     {
         //Update Stats
         PlayerStats playerStats = GameObject.Find("StatManager").GetComponent<PlayerStats>();
+
         playerStats.attack += attack;
         playerStats.defense += defense;
         playerStats.agility += agility;
         playerStats.luck += luck;
+        PlayerController player = GameObject.Find("Player").GetComponent<PlayerController>();
+        player.speed += agility;
+        player.jumpForce += agility;
 
         playerStats.UpdateEquipmentStats();
     }

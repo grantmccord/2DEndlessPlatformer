@@ -15,5 +15,5 @@ MonoBehaviour:
   itemName: Bear
   attack: 1
   defense: 1
-  agility: 1
+  agility: 10
   luck: 1
